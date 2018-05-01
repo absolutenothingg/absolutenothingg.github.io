@@ -263,17 +263,18 @@ loadbtn.MouseButton1Click:connect(function()
 end)
 
 
-local gayeuser = game.Players.LocalPlayer
-for _,v in pairs(game.Players:GetChildren())do
-   v.Chatted:connect(function(msg)
-    if string.match(msg, "getlevel") then
-     if v.Name == gayeuser.Name then
-      local username = split(msg,"!")[2]
-        local level = getlevel(username)
-        print("The current level of " .. username " is " .. level .. ".")
-     end
-    end)
-   end
+local gayuser = game.Players.LocalPlayer
+for _,v in pairs(game.Players:GetChildren()) do
+	v.Chatted:connect(function(msg)
+		if string.match(msg, "getlevel") then
+			if v.Name == gayuser.Name then
+				local username = split(msg, "!")[2]
+				local level = getlevel(username)
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username .. " is " .. level .. ".", All)
+			end
+		end
+	end)
+end
      
    
    
