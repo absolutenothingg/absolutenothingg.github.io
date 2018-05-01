@@ -268,7 +268,7 @@ for _,v in pairs(game.Players:GetChildren()) do
 				local username = split(msg, "!")[2]
                                 local level = game.Players[username].PlayerFolder.Stats.Level.Value
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username .. " is " .. level .. ".", All)
-	end
+	
 	end
 			
 		end
