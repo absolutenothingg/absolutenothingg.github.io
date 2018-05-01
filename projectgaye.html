@@ -276,11 +276,9 @@ for _,v in pairs(game.Players:GetChildren()) do
 				local teamvalue = tostring(game.Players[username].PlayerFolder.Customization.Team.Value)
                 if teamvalue == "Ghoul" then
             	local team = "Kagune"
-                end
-                if teamvalue == "CCG" then
+                elseif teamvalue == "CCG" then
              	local team = "Quinque"
-                end
-		if teamvalue =! "Ghoul" or "Quinque" then
+		elseif teamvalue ~= "Ghoul" or "Quinque" then
 		local team = "N/A"
 		end
 		
