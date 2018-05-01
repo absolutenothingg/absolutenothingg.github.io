@@ -273,13 +273,17 @@ for _,v in pairs(game.Players:GetChildren()) do
 		if string.match(msg, "getstats") then
 			if v.Name == gayuser.Name then
 				local username = split(msg, "!")[2]
-				local teamvalue = game.Players[username].PlayerFolder.Customization.Team.Value
+				local teamvalue = tostring(game.Players[username].PlayerFolder.Customization.Team.Value)
                 if teamvalue == "Ghoul" then
             	local team = "Kagune"
                 end
                 if teamvalue == "CCG" then
              	local team = "Quinque"
                 end
+		if teamvalue =! "Ghoul" or "Quinque" then
+		local team = "N/A"
+		end
+		
 				local durability = tostring(game.Players[username].PlayerFolder.Stats.Durability.Value)
                 local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
                 local physical = tostring(game.Players[username].PlayerFolder.Stats.Physical.Value)
