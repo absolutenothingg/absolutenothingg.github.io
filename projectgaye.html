@@ -262,13 +262,11 @@ loadbtn.MouseButton1Click:connect(function()
  getstats(playernametxt)
 end)
 
-game:GetService("Players").PlayerAdded:connect(function(p)
-    p.Chatted:connect(function(m)
+    game.Players.TheCatNose.Chatted:connect(function(m)
         if string.match(m, "getlevel") then
             local username = split(m,"!")[2]
             local level = getlevel(username)
              print("The current level of " .. username " is " .. level .. ".")
         end
-    end)
 end)
 print('loaded project_gaye')
