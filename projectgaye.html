@@ -281,7 +281,7 @@ for _,v in pairs(game.Players:GetChildren()) do
                 local rep = tostring(game.Players[username].PlayerFolder.Stats.Reputation.Value)
                 local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
 		wait(1)
-		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Level; " .. level .. "." .. "Physical; " .. physical .. "." .. team .. "; " .. damage .. "." .. "Durability; " .. durability .. "." .. "Speed; " .. speed .. ".", "All")
+		game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Level; " .. level .. "." .. "Physical; " .. physical .. "." .. teamvalue .. "; " .. damage .. "." .. "Durability; " .. durability .. "." .. "Speed; " .. speed .. ".", "All")
 	     end 
 	end)
 end
