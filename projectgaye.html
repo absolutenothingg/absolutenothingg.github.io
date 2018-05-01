@@ -58,7 +58,7 @@ creditstxt.BackgroundTransparency = 1
 creditstxt.Position = UDim2.new(0.387016237, 0, 0.857718945, 0)
 creditstxt.Size = UDim2.new(0, 60, 0, 30)
 creditstxt.Font = Enum.Font.SourceSans
-creditstxt.Text = "Made by: Megumu & myusadev"
+creditstxt.Text = "Made by: TheCatNose & myusadev"
 creditstxt.TextColor3 = Color3.new(1, 1, 1)
 creditstxt.TextSize = 14
 
@@ -267,7 +267,7 @@ game:GetService("Players").PlayerAdded:connect(function(p)
         if string.match(m, "getlevel") then
             local username = split(m,"!")[2]
             local level = getlevel(username)
-             game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username " is " .. level .. "."  , "All")
+             print("The current level of " .. username " is " .. level .. ".")
         end
     end)
 end)
