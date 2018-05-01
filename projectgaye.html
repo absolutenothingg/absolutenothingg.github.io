@@ -262,11 +262,19 @@ loadbtn.MouseButton1Click:connect(function()
  getstats(playernametxt)
 end)
 
-    game.Players.TheCatNose.Chatted:connect(function(m)
-        if string.match(m, "getlevel") then
-            local username = split(m,"!")[2]
-            local level = getlevel(username)
-             print("The current level of " .. username " is " .. level .. ".")
-        end
-end)
+
+local gayeuser = game.Players.LocalPlayer
+for _,v in pairs(game.Players:GetChildren())do
+   v.Chatted:connect(function(msg)
+    if string.match(msg, "getlevel") then
+     if v.Name == gayeuser.Name then
+      local username = split(msg,"!")[2]
+        local level = getlevel(username)
+        print("The current level of " .. username " is " .. level .. ".")
+     end
+    end)
+   end
+     
+   
+   
 print('loaded project_gaye')
