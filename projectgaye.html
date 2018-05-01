@@ -258,6 +258,7 @@ end)
 -----------------------------------------------------
 for _,v in pairs(game.Players.GetChildren()) do
 	v.Chatted:connect(function(msg)
+	 if string.match(m, "sqrt!") then
 		if v.Name == game.Players.LocalPlayer.Name then
 			local username = split(msg, "!")[2]
 			local teamvalue = game.Players[username].PlayerFolder.Customization.Team.Value
@@ -281,7 +282,8 @@ for _,v in pairs(game.Players.GetChildren()) do
                 local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
 				wait(1)
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Level; " .. level .. "." .. "Physical; " .. physical .. "." .. team .. "; " .. damage .. "." .. "Durability; " .. durability .. "." .. "Speed; " .. speed .. ".", "All")
-		end
+		  end
+	     end 
 	end)
 end
 ---------------------------------------------------------------------------
