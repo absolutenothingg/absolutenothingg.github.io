@@ -208,41 +208,39 @@ usernametxt.TextXAlignment = Enum.TextXAlignment.Left
 
 -- Scripts 
 
-
 local function split(pString, pPattern) local Table = {} local fpat = "(.-)" .. pPattern local last_end = 1 local s, e, cap = pString:find(fpat, 1) while s do if s ~= 1 or cap ~= "" then table.insert(Table,cap) end last_end = e+1 s, e, cap = pString:find(fpat, last_end) end if last_end <= #pString then cap = pString:sub(last_end) table.insert(Table, cap) end return Table end
 
-local playercrnt= game:GetService("Players").LocalPlayer
+local playercrnt = game:GetService("Players").LocalPlayer
 local Mouse = playercrnt:GetMouse()
 
 local function getstats(playername)
-local durability = game.Players[playername].PlayerFolder.Stats.Durability.Value
-local level = game.Players[playername].PlayerFolder.Stats.Level.Value
-local physical = game.Players[playername].PlayerFolder.Stats.Physical.Value
-local rc = game.Players[playername].PlayerFolder.Stats.RC.Value
-local speed = game.Players[playername].PlayerFolder.Stats.Speed.Value
-local damage = game.Players[playername].PlayerFolder.Stats.Weapon.Value
-local weapon = game.Players[playername].PlayerFolder.Customization.Weapon.Value
-local nickname = game.Players[playername].PlayerFolder.Customization.Nickname.Value
-local exp = game.Players[playername].PlayerFolder.Stats.Experience.Value
-local yen = game.Players[playername].PlayerFolder.Stats.Yen.Value
-local rep = game.Players[playername].PlayerFolder.Stats.Reputation.Value
-local username = game.Players[playername].Name
-durabilitytxt.Text = ("Durability: " .. durability)
-leveltxt.Text = ("Level: " .. level)
-physicaltxt.Text = ("Physical: " .. physical)
-rctxt.Text = ("RC: " .. rc)
-speedtxt.Text = ("Speed: " .. speed)
-weapontxt.Text = ("Damage: " .. damage)
-weepuntxt.Text = ("Weapon: " .. weapon)
-nicknametxt.Text = ("Nickname: " .. nickname)
-yentxt.Text = ("Yen: " .. yen)
-reptxt.Text = ("Reputation: " .. rep)
-exptxt.Text =("EXP: " .. exp)
-usernametxt.Text = ("Username: " .. username)
+	local plrfolder = game.Players[playername].PlayerFolder
+	local durability = tostring(plrfolder.Stats.Durability.Value)
+	local level = tostring(plrfolder.Stats.Level.Value)
+	local physical = tostring(plrfolder.Stats.Physical.Value)
+	local rc = tostring(plrfolder.Stats.RC.Value)
+	local speed = tostring(plrfolder.Stats.Speed.Value)
+	local damage = tostring(plrfolder.Stats.Weapon.Value)
+	local weapon = tostring(plrfolder.Customization.Weapon.Value)
+	local nickname = tostring(plrfolder.Customization.Nickname.Value)
+	local exp = tostring(plrfolder.Stats.Experience.Value)
+	local yen = tostring(plrfolder.Stats.Yen.Value)
+	local rep = tostring(plrfolder.Stats.Reputation.Value)
+	local username = game.Players[playername].Name
+    durabilitytxt.Text = ("Durability: " .. durability)
+    leveltxt.Text = ("Level: " .. level)
+    physicaltxt.Text = ("Physical: " .. physical)
+    rctxt.Text = ("RC: " .. rc)
+    speedtxt.Text = ("Speed: " .. speed)
+    weapontxt.Text = ("Damage: " .. damage)
+    weepuntxt.Text = ("Weapon: " .. weapon)
+    nicknametxt.Text = ("Nickname: " .. nickname)
+    yentxt.Text = ("Yen: " .. yen)
+    reptxt.Text = ("Reputation: " .. rep)
+    exptxt.Text =("EXP: " .. exp)
+    usernametxt.Text = ("Username: " .. username)
 end
-
-
-
+---------------------------------------------------
 Mouse.Button1Down:connect(function()
 if not game:GetService("UserInputService"):IsKeyDown(Enum.KeyCode.LeftControl) then return end
 if not Mouse.Target then return end
@@ -252,29 +250,24 @@ local idk1 = nonparent.Parent.Name
 if idk.Name == "Workspace" then getstats(idk1) else getstats(idk)
 end
 end)
-
-
+-----------------------------------------------------
 loadbtn.MouseButton1Click:connect(function()
- local playernametxt = playertxt.Text
- getstats(playernametxt)
+	local playernametxt = playertxt.Text
+	getstats(playernametxt)
 end)
-
-
-for _,v in pairs(game.Players:GetChildren()) do
+-----------------------------------------------------
+for _,v in pairs(game.Players.GetChildren()) do
 	v.Chatted:connect(function(msg)
-     if v.Name == game.Players.LocalPlayer.Name then
-	 local username = split(msg, "!")[2]
-	local teamvalue = game.Players[username].PlayerFolder.Customization.Team.Value
-    if teamvalue == "CCG" then
-	local team = "Quinque"
-end
-    if teamvalue == "Ghoul" then
-	local team = "Kagune"
-end
-end
-end)
-end
-		local durability = tostring(game.Players[username].PlayerFolder.Stats.Durability.Value)
+		if v.Name == game.Players.LocalPlayer.Name then
+			local username = split(msg, "!")[2]
+			local teamvalue = game.Players[username].PlayerFolder.Customization.Team.Value
+			if teamvalue == "CCG" then
+				local team = "Quinque"
+			end
+			if teamvalue == "Ghoul" then
+				local team = "Kagune"
+			end
+			local durability = tostring(game.Players[username].PlayerFolder.Stats.Durability.Value)
                 local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
                 local physical = tostring(game.Players[username].PlayerFolder.Stats.Physical.Value)
                 local rc = tostring(game.Players[username].PlayerFolder.Stats.RC.Value)
@@ -288,13 +281,9 @@ end
                 local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
 				wait(1)
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Level; " .. level .. "." .. "Physical; " .. physical .. "." .. team .. "; " .. damage .. "." .. "Durability; " .. durability .. "." .. "Speed; " .. speed .. ".", "All")
-	
-	end
-			
 		end
 	end)
 end
-     
-   
-   
-print('loaded project_gaye')
+---------------------------------------------------------------------------
+print('loaded project_gaye.exe')
+
