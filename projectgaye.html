@@ -270,8 +270,13 @@ for _,v in pairs(game.Players:GetChildren()) do
 			if v.Name == gayuser.Name then
 				local username = split(msg, "!")[2]
 				local level = getlevel(username)
+				if level == nil then
+				print("ERROR: End my life :((")
+	                        else
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username .. " is " .. level .. ".", All)
-			end
+	end
+	end
+			
 		end
 	end)
 end
