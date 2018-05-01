@@ -241,10 +241,6 @@ exptxt.Text =("EXP: " .. exp)
 usernametxt.Text = ("Username: " .. username)
 end
 
-local function getlevel(playername)
-local level = game.Players[playername].PlayerFolder.Stats.Level.Value
-return level
-end
 
 
 Mouse.Button1Down:connect(function()
@@ -270,10 +266,7 @@ for _,v in pairs(game.Players:GetChildren()) do
 		if string.match(msg, "getlevel") then
 			if v.Name == gayuser.Name then
 				local username = split(msg, "!")[2]
-				local level1 = getlevel(username)
-				if level1 == nil then
-				print("ERROR: End my life :((")
-	                        else
+                                local level = game.Players[username].PlayerFolder.Stats.Level.Value
 				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username .. " is " .. level .. ".", All)
 	end
 	end
