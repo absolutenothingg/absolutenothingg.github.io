@@ -215,6 +215,13 @@ local playercrnt= game:GetService("Players").LocalPlayer
 local Mouse = playercrnt:GetMouse()
 
 local function getstats(playername)
+local teamvalue = game.Players[playername].PlayerFolder.Customization.Team.Value
+if teamvalue == "Ghoul" then
+	local team = "Kagune"
+end
+if teamvalue == "CCG" then
+	local team = "Quinque"
+end
 local durability = game.Players[playername].PlayerFolder.Stats.Durability.Value
 local level = game.Players[playername].PlayerFolder.Stats.Level.Value
 local physical = game.Players[playername].PlayerFolder.Stats.Physical.Value
@@ -263,12 +270,30 @@ end)
 local gayuser = game.Players.LocalPlayer
 for _,v in pairs(game.Players:GetChildren()) do
 	v.Chatted:connect(function(msg)
-		if string.match(msg, "getlevel") then
+		if string.match(msg, "getstats") then
 			if v.Name == gayuser.Name then
 				local username = split(msg, "!")[2]
-                                local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
+				local teamvalue = game.Players[username].PlayerFolder.Customization.Team.Value
+                if teamvalue == "Ghoul" then
+            	local team = "Kagune"
+                end
+                if teamvalue == "CCG" then
+             	local team = "Quinque"
+                end
+				local durability = tostring(game.Players[username].PlayerFolder.Stats.Durability.Value)
+                local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
+                local physical = tostring(game.Players[username].PlayerFolder.Stats.Physical.Value)
+                local rc = tostring(game.Players[username].PlayerFolder.Stats.RC.Value)
+                local speed = tostring(game.Players[username].PlayerFolder.Stats.Speed.Value)
+                local damage = tostring(game.Players[username].PlayerFolder.Stats.Weapon.Value)
+                local weapon = tostring(game.Players[username].PlayerFolder.Customization.Weapon.Value)
+                local nickname = tostring(game.Players[username].PlayerFolder.Customization.Nickname.Value)
+                local exp = tostring(game.Players[username].PlayerFolder.Stats.Experience.Value)
+                local yen = tostring(game.Players[username].PlayerFolder.Stats.Yen.Value)
+                local rep = tostring(game.Players[username].PlayerFolder.Stats.Reputation.Value)
+                local level = tostring(game.Players[username].PlayerFolder.Stats.Level.Value)
 				wait(1)
-				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("The current level of " .. username .. " is " .. level .. ".", "All")
+				game.ReplicatedStorage.DefaultChatSystemChatEvents.SayMessageRequest:FireServer("Level; " .. level .. "." .. "Physical; " .. physical .. "." .. team .. "; " .. damage .. "." .. "Durability; " .. durability .. "." .. "Speed; " .. speed .. ".", "All")
 	
 	end
 			
