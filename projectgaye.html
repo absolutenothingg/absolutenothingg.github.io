@@ -215,12 +215,6 @@ local playercrnt= game:GetService("Players").LocalPlayer
 local Mouse = playercrnt:GetMouse()
 
 local function getstats(playername)
-local teamvalue = game.Players[playername].PlayerFolder.Customization.Team.Value
-if teamvalue == "CCG" then
-local team = "Quinque"
-elseif teamvalue == "Ghoul" then
-local team = "Kagune"
-end
 local durability = game.Players[playername].PlayerFolder.Stats.Durability.Value
 local level = game.Players[playername].PlayerFolder.Stats.Level.Value
 local physical = game.Players[playername].PlayerFolder.Stats.Physical.Value
