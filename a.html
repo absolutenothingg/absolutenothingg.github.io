@@ -34,9 +34,7 @@ function convert() {
 	console.log("[LOG] Converting text: " + text);
 	var split_array = text.split("");
 	var final_string = "";
-
-		if(isLetter(value)){
-			final_string = "https://twitter.com/i/videos/" + split_array + "?embed_source=facebook";}
+			final_string = "https://twitter.com/i/videos/" + text + "?embed_source=facebook";
 	
 	console.log("[LOG] Result: " + final_string);
 	document.getElementById("final_text").value = final_string;
