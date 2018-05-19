@@ -1,14 +1,49 @@
-<!DOCTYPE html>
-<html>
-<body>
 
-Twitter ID:<input type="text" name="twitterid" value="Mickey"><br>
-<button onclick="myFunction()">GET URL</button>
-<p id="demo"></p>
- 
+<html>
+<head>
+<title>Discord Bubbletext Translator</title>
+<style>
 <script>
-function myFunction() {
-  document.getElementById("demo").innerHTML = "https://twitter.com/i/videos/" + twitterid + "?embed_source=facebook";
+    $(document).ready(function(){ 
+	$('body').find('img[src$="https://cdn.rawgit.com/000webhost/logo/e9bd13f7/footer-powered-by-000webhost-white2.png"]').remove();
+    }); 
+</script>
+.convert_button{
+	width:425px;
+}
+
+.convert_header{
+	text-align: center;
+}
+</style>
+</head>
+<body>
+<h1 class="convert_header">Discord Bubbletext Translator</h1>
+<p><i>Enter text to convert here:<i></p>
+<textarea rows="4" cols="50" id="input_text"></textarea>
+<br>
+<button onclick="convert()" class="convert_button">Convert Text</button>
+<br><br>
+<p>Output:</p>
+<textarea rows="10" cols="50" id="final_text"></textarea>
+<script>
+function isLetter(c) {
+  return c.toLowerCase() != c.toUpperCase();
+}
+
+function convert() {
+	var text = document.getElementById("input_text").value;
+	console.log("[LOG] Converting text: " + text);
+	var split_array = text.split("");
+	var final_string = "";
+	for(var i = 0; i < split_array.length; i++){
+		var value = split_array[i];
+		if(isLetter(value)){
+			final_string = "https://twitter.com/i/videos/823649890379120640" + value + "?embed_source=facebook";
+		}
+	}
+	console.log("[LOG] Result: " + final_string);
+	document.getElementById("final_text").value = final_string;
 }
 </script>
 </body>
