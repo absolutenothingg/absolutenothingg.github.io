@@ -37,9 +37,8 @@ function convert() {
 	
 		var value = split_array[i];
 		if(isLetter(value)){
-			final_string = "https://twitter.com/i/videos/" + value + "?embed_source=facebook";
-		}
-	}
+			final_string = "https://twitter.com/i/videos/" + value + "?embed_source=facebook";}
+	
 	console.log("[LOG] Result: " + final_string);
 	document.getElementById("final_text").value = final_string;
 }
