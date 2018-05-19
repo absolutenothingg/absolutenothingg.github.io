@@ -27,19 +27,17 @@
 <p>Output:</p>
 <textarea rows="10" cols="50" id="final_text"></textarea>
 <script>
-function isLetter(c) {
-  return c.toLowerCase() != c.toUpperCase();
-}
+
 
 function convert() {
 	var text = document.getElementById("input_text").value;
 	console.log("[LOG] Converting text: " + text);
 	var split_array = text.split("");
 	var final_string = "";
-	for(var i = 0; i < split_array.length; i++){
+	
 		var value = split_array[i];
 		if(isLetter(value)){
-			final_string = "https://twitter.com/i/videos/823649890379120640" + value + "?embed_source=facebook";
+			final_string = "https://twitter.com/i/videos/" + value + "?embed_source=facebook";
 		}
 	}
 	console.log("[LOG] Result: " + final_string);
